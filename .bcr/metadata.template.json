@@ -1,7 +1,7 @@
 {
-  "homepage": "https://github.com/myorg/rules_mylang",
+  "homepage": "https://github.com/fullstorydev/rules_android",
   "maintainers": [],
-  "repository": ["github:myorg/rules_mylang"],
+  "repository": ["github:fullstorydev/rules_android"],
   "versions": [],
   "yanked_versions": {}
 }
