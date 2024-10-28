@@ -25,10 +25,11 @@ jobs:
           ".",
           "e2e/smoke"
         ]
+      # TODO(vpanta): Re-enable Bazel 8.0 once we figure out the stardoc glob issue.
       exclude: |
         [
           {"folder": ".", "bzlmodEnabled": false},
-          {"bazelversion": "8.0.0rc1", "os": "ubuntu-latest"}
+          {"bazelversion": "8.0.0rc1"}
         ]
   # For branch protection settings, this job provides a "stable" name that can be used to gate PR merges
   # on "all matrix jobs were successful".
