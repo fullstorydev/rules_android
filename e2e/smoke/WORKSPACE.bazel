@@ -14,6 +14,15 @@ local_repository(
 # you should fetch it *before* calling this.
 # Alternatively, you can skip calling this function, so long as you've
 # already fetched all the dependencies.
-load("@fullstory_rules_android//android:repositories.bzl", "rules_android_dependencies")
+load("@fullstory_rules_android//android:dependencies.bzl", fullstory_rules_android_dependencies = "rules_android_dependencies")
 
-rules_android_dependencies()
+fullstory_rules_android_dependencies()
+
+# Set up bazelbuild/rules_android requirements, if you haven't already.
+load("@rules_android//:prereqs.bzl", "rules_android_prereqs")
+
+rules_android_prereqs()
+
+load("@rules_android//:defs.bzl", "rules_android_workspace")
+
+rules_android_workspace()

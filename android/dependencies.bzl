@@ -18,12 +18,11 @@ def http_archive(name, **kwargs):
 # and released only in semver majors.
 # This is all fixed by bzlmod, so we just tolerate it for now.
 def rules_android_dependencies():
-    # The minimal version of bazel_skylib we require
     http_archive(
-        name = "bazel_skylib",
-        sha256 = "bc283cdfcd526a52c3201279cda4bc298652efa898b10b4db0837dc51652756f",
-        urls = [
-            "https://github.com/bazelbuild/bazel-skylib/releases/download/1.7.1/bazel-skylib-1.7.1.tar.gz",
-            "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.7.1/bazel-skylib-1.7.1.tar.gz",
-        ],
+        name = "rules_android",
+        sha256 = "b1599e4604c1594a1b0754184c5e50f895a68f444d1a5a82b688b2370d990ba0",
+        strip_prefix = "rules_android-0.5.1",
+        url = "https://github.com/bazelbuild/rules_android/releases/download/v0.5.1/rules_android-v0.5.1.tar.gz",
+        patch_args = ["-p1"],
+        patches = ["@fullstory_rules_android//:patches/bazelbuild/rules_android/rules_bzl_lib.patch"],
     )

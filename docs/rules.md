@@ -2,15 +2,34 @@
 
 Public API re-exports
 
-<a id="example"></a>
+<a id="fullstory_android_binary"></a>
 
-## example
+## fullstory_android_binary
 
 <pre>
-example()
+load("@fullstory_rules_android//android:defs.bzl", "fullstory_android_binary")
+
+fullstory_android_binary(<a href="#fullstory_android_binary-name">name</a>, <a href="#fullstory_android_binary-apk">apk</a>)
 </pre>
 
-This is an example
+Integrate the Android Fullstory SDK into an Android application.
 
+Example:
+```starlark
+load("@rullstory_rules_android//android:defs.bzl", "fullstory_android_binary")
+
+fullstory_android_binary(
+  name = "example",
+  apk = "//package:android_binary_target",
+)
+```
+
+**ATTRIBUTES**
+
+
+| Name  | Description | Type | Mandatory | Default |
+| :------------- | :------------- | :------------- | :------------- | :------------- |
+| <a id="fullstory_android_binary-name"></a>name |  A unique name for this target.   | <a href="https://bazel.build/concepts/labels#target-names">Name</a> | required |  |
+| <a id="fullstory_android_binary-apk"></a>apk |  -   | <a href="https://bazel.build/concepts/labels">Label</a> | required |  |
 
 
