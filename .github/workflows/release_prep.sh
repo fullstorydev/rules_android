@@ -36,6 +36,16 @@ http_archive(
     strip_prefix = "${PREFIX}",
     url = "https://github.com/fullstorydev/rules_android/releases/download/${TAG}/${ARCHIVE}",
 )
+
+load("@fullstory_rules_android//android:dependencies.bzl", fullstory_rules_android_dependencies = "rules_android_dependencies")
+fullstory_rules_android_dependencies()
+
+# Set up bazelbuild/rules_android requirements, if you haven't already.
+load("@rules_android//:prereqs.bzl", "rules_android_prereqs")
+rules_android_prereqs()
+
+load("@rules_android//:defs.bzl", "rules_android_workspace")
+rules_android_workspace()
 EOF
 
 awk 'f;/--SNIP--/{f=1}' e2e/smoke/WORKSPACE.bazel

@@ -10,6 +10,10 @@ common --check_direct_dependencies=off
 build --repository_cache=.cache/bazel/repo
 build --disk_cache=.cache/bazel/actions
 
+# Settings required for bazelbuild/rules_android
+common --experimental_google_legacy_api
+common --experimental_enable_android_migration_apis
+
 # Load any settings specific to the current user.
 # .bazelrc.user should appear in .gitignore so that settings are not shared with team members
 # This needs to be last statement in this
