@@ -4,7 +4,7 @@ bzl_library(
     name = "fullstory_android_binary",
     srcs = ["fullstory_android_binary.bzl"],
     visibility = ["//android:__subpackages__"],
-    deps = ["@rules_android//android:rules"],
+    deps = ["@rules_android//rules"],
 )
 
 bzl_library(

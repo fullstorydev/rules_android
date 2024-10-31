@@ -1,6 +1,6 @@
 "implementation of fullstory_android_binary rule"
 
-load("@rules_android//android:rules.bzl", "ApkInfo")
+load("@rules_android//rules:rules.bzl", "ApkInfo")
 
 def _impl(ctx):
     return [

@@ -1,14 +1,14 @@
-diff --git a/android/BUILD b/android/BUILD
-index 4db0c10..d7ee91b 100644
---- a/android/BUILD
-+++ b/android/BUILD
-@@ -16,3 +16,16 @@
- Package used for redirecting Starlark rules from //android/rules.bzl to //rules/rules.bzl.
- Used for easier migration to a new branch due to directory differences.
- """
-+
-+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
-+
+diff --git a/rules/BUILD b/rules/BUILD
+index c8b565d..b21b536 100644
+--- a/rules/BUILD
++++ b/rules/BUILD
+@@ -118,6 +118,21 @@ bzl_library(
+     ],
+ )
+ 
++# Publicly-visible single-file `rules.bzl` target, for users of
++# `bazelbuild/bazel-skylib`'s `bazel_skylib_gazelle_plugin`:
++# https://registry.bazel.build/modules/bazel_skylib_gazelle_plugin
 +bzl_library(
 +    name = "rules",
 +    srcs = ["rules.bzl"],
@@ -16,18 +16,11 @@ index 4db0c10..d7ee91b 100644
 +        "//visibility:public",
 +    ],
 +    deps = [
-+        "//rules:bzl",
++        ":bzl",
 +    ],
 +)
-diff --git a/rules/BUILD b/rules/BUILD
-index c8b565d..b1a560b 100644
---- a/rules/BUILD
-+++ b/rules/BUILD
-@@ -115,6 +115,7 @@ bzl_library(
-         "rules.bzl",
-     ],
-     visibility = [
-+        "//android:__pkg__",
-         "//mobile_install:__pkg__",
-         "//stardoc:__pkg__",
-     ],
++
++
+ bzl_library(
+     name = "min_sdk_version_bzl",
+     srcs = ["min_sdk_version.bzl"],
